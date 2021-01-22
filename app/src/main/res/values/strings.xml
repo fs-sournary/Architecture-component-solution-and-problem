@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ArchiectureComponentProblemsAndSolution</string>
+
+    <string name="problem0">Problem 0</string>
+    <string name="solution0">Solution 0</string>
+    <string name="problem1">Problem 1</string>
+    <string name="solution1">Solution 1</string>
+    <string name="problem2">Problem 2</string>
+    <string name="solution2">Solution 2</string>
+    <string name="problem3">Problem 3</string>
+    <string name="solution3">Solution 3</string>
+    <string name="problem4">Problem 4</string>
+    <string name="solution4">Solution 4</string>
+    <string name="message">Welcome to Android</string>
+    <string name="navigation">Navigation</string>
+</resources>

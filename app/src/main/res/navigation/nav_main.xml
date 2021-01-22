@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/home_dest">
+
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/navigate_to_problem0"
+            app:destination="@id/problem0_dest" />
+
+        <action
+            android:id="@+id/navigate_to_solution0"
+            app:destination="@id/solution0_dest" />
+
+        <action
+            android:id="@+id/navigate_to_problem1"
+            app:destination="@id/problem1_dest" />
+
+        <action
+            android:id="@+id/navigate_to_solution1"
+            app:destination="@+id/solution1_dest" />
+
+        <action
+            android:id="@+id/navigate_to_problem2"
+            app:destination="@id/problem2_dest" />
+
+        <action
+            android:id="@+id/navigate_to_problem3"
+            app:destination="@id/problem3_dest" />
+
+        <action
+            android:id="@+id/navigate_to_solution3"
+            app:destination="@id/solution3_dest" />
+
+        <action
+            android:id="@+id/navigate_to_problem4"
+            app:destination="@id/problem4_dest" />
+
+        <action
+            android:id="@+id/navigate_to_solution4"
+            app:destination="@id/solution4_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/problem0_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.problem0.Problem0Fragment"
+        android:label="Using LiveData to implement events"
+        tools:layout="@layout/fragment_problem0">
+
+        <action
+            android:id="@+id/navigate_to_navigation"
+            app:destination="@id/navigation_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/solution0_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.solution0.Solution0Fragment"
+        android:label="Using LiveData to implement events"
+        tools:layout="@layout/fragment_solution0">
+
+        <action
+            android:id="@+id/navigate_to_navigation"
+            app:destination="@id/navigation_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/problem1_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.problem1.Problem1Fragment"
+        android:label="Using MutableLive in a View"
+        tools:layout="@layout/fragment_problem1" />
+
+    <fragment
+        android:id="@+id/solution1_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.solution1.Solution1Fragment"
+        android:label="Using MutableLive in a View"
+        tools:layout="@layout/fragment_solution1" />
+
+    <fragment
+        android:id="@+id/problem2_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.problem2.Problem2Fragment"
+        android:label="Leaking LiveData in Fragment"
+        tools:layout="@layout/fragment_problem2" />
+
+    <fragment
+        android:id="@+id/problem3_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.problem3.Problem3Fragment"
+        android:label="Reload data because of navigation or device rotation"
+        tools:layout="@layout/fragment_problem3">
+
+        <action
+            android:id="@+id/navigate_to_navigation"
+            app:destination="@id/navigation_dest" />
+
+        <argument
+            android:name="number"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.navigation.NavigationFragment"
+        android:label="Navigation"
+        tools:layout="@layout/fragment_navigation" />
+
+    <fragment
+        android:id="@+id/solution3_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.solution3.Solution3Fragment"
+        android:label="Reload data because of navigation or device rotation"
+        tools:layout="@layout/fragment_solution3">
+
+        <action
+            android:id="@+id/navigate_to_navigation"
+            app:destination="@id/navigation_dest" />
+
+        <argument
+            android:name="number"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/problem4_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.problem4.Problem4Fragment"
+        android:label="Leaking ViewModel"
+        tools:layout="@layout/fragment_problem4" />
+
+    <fragment
+        android:id="@+id/solution4_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.solution4.Solution4Fragment"
+        android:label="Leading ViewModel"
+        tools:layout="@layout/fragment_solution4" />
+</navigation>
