@@ -61,5 +61,9 @@ class HomeFragment : Fragment() {
             val directions = HomeFragmentDirections.navigateToSolution4()
             navController.navigate(directions)
         }
+        bt_practicing.setOnClickListener {
+            val directions = HomeFragmentDirections.navigateToPracticing()
+            navController.navigate(directions)
+        }
     }
 }

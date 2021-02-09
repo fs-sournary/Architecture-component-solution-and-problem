@@ -46,6 +46,10 @@
         <action
             android:id="@+id/navigate_to_solution4"
             app:destination="@id/solution4_dest" />
+
+        <action
+            android:id="@+id/navigate_to_practicing"
+            app:destination="@id/practicing_dest" />
     </fragment>
 
     <fragment
@@ -135,4 +139,10 @@
         android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.solution4.Solution4Fragment"
         android:label="Leading ViewModel"
         tools:layout="@layout/fragment_solution4" />
+
+    <fragment
+        android:id="@+id/practicing_dest"
+        android:name="com.itlifelang.archiecturecomponentproblemsandsolution.ui.practicing.PracticingFragment"
+        android:label="Practicing"
+        tools:layout="@layout/fragment_practicing" />
 </navigation>
