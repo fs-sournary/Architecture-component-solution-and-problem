@@ -1,96 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/person_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_home_person" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/error_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_problem_0"
-            style="@style/Widget.App.Button.Home.problem"
-            android:layout_marginTop="8dp"
-            android:text="@string/problem0"
-            app:layout_constraintEnd_toStartOf="@id/bt_solution_0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_solution_0"
-            style="@style/Widget.App.Button.Home.solution"
-            android:text="@string/solution0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/bt_problem_0"
-            app:layout_constraintTop_toTopOf="@id/bt_problem_0" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_problem_1"
-            style="@style/Widget.App.Button.Home.problem"
-            android:text="@string/problem1"
-            app:layout_constraintEnd_toStartOf="@id/bt_solution_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_0" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_solution_1"
-            style="@style/Widget.App.Button.Home.solution"
-            android:text="@string/solution1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/bt_problem_1"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_0" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_problem_2"
-            style="@style/Widget.App.Button.Home.problem"
-            android:layout_marginTop="8dp"
-            android:text="@string/problem2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_1" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_problem_3"
-            style="@style/Widget.App.Button.Home.problem"
-            android:layout_marginTop="8dp"
-            android:text="@string/problem3"
-            app:layout_constraintEnd_toStartOf="@id/bt_solution_3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_2" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_solution_3"
-            style="@style/Widget.App.Button.Home.solution"
-            android:text="@string/solution3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/bt_problem_3"
-            app:layout_constraintTop_toTopOf="@id/bt_problem_3" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_problem_4"
-            style="@style/Widget.App.Button.Home.problem"
-            android:layout_marginTop="8dp"
-            android:text="@string/problem4"
-            app:layout_constraintEnd_toStartOf="@id/bt_solution_4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_3" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_solution_4"
-            style="@style/Widget.App.Button.Home.solution"
-            android:text="@string/solution4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/bt_problem_4"
-            app:layout_constraintTop_toTopOf="@id/bt_problem_4" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_practicing"
-            style="@style/Widget.App.Button.Home.solution"
-            android:text="@string/practicing"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_problem_4" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        tools:text="This is an error" />
+</FrameLayout>
