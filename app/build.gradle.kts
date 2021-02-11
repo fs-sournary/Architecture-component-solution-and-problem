@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
+    id("kotlin-parcelize")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
@@ -28,7 +28,7 @@ android {
         }
     }
     buildFeatures {
-        dataBinding = true
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility(JavaVersion.VERSION_1_8)
@@ -81,6 +81,10 @@ dependencies {
     kapt(Lib.HILT_COMPILER)
     implementation(Lib.HILT_ANDROID_VIEWMODEL)
     kapt(Lib.HILT_ANDROID_COMPILER)
+
+    // Room
+    implementation(Lib.ROOM_KTX)
+    kapt(Lib.ROOM_COMPILER)
 
     // Glide
     implementation(Lib.GLIDE_RUNTIME)

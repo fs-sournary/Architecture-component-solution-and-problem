@@ -2,28 +2,49 @@ package com.itlifelang.archiecturecomponentproblemsandsolution.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.itlifelang.archiecturecomponentproblemsandsolution.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.itlifelang.archiecturecomponentproblemsandsolution.databinding.ActivityMainBinding
+import com.itlifelang.archiecturecomponentproblemsandsolution.extension.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
+    private var currentNavController: LiveData<NavController>? = null
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        if (savedInstanceState == null) {
+            setupNavigation()
+        }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
         setupNavigation()
     }
 
     private fun setupNavigation() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+        val navGraphIds = listOf(R.navigation.nav_home, R.navigation.nav_local_person)
+        val controller = binding.bottomNav.setupWithNavController(
+            navGraphIds = navGraphIds,
+            fragmentManager = supportFragmentManager,
+            containerId = R.id.nav_host_fragment,
+            intent = intent
+        )
+        controller.observe(this) {
+            binding.toolbar.setupWithNavController(it)
+        }
+        currentNavController = controller
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return currentNavController?.value?.navigateUp() ?: false
     }
 }

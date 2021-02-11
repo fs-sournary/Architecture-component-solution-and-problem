@@ -5,65 +5,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.itlifelang.archiecturecomponentproblemsandsolution.R
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.itlifelang.archiecturecomponentproblemsandsolution.databinding.FragmentHomeBinding
+import com.itlifelang.archiecturecomponentproblemsandsolution.extension.autoCleared
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private val navController by lazy { findNavController() }
+    private var binding: FragmentHomeBinding by autoCleared()
+    private var adapter: HomePersonListAdapter by autoCleared()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = layoutInflater.inflate(R.layout.fragment_home, container, false)
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupEvents()
+        setupPersonList()
+        setupViewModel()
     }
 
-    private fun setupEvents() {
-        bt_problem_0.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToProblem0()
-            navController.navigate(directions)
-        }
-        bt_solution_0.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToSolution0()
-            navController.navigate(directions)
-        }
-        bt_problem_1.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToProblem1()
-            navController.navigate(directions)
-        }
-        bt_solution_1.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToSolution1()
-            navController.navigate(directions)
-        }
-        bt_problem_2.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToProblem2()
-            navController.navigate(directions)
-        }
-        bt_problem_3.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToProblem3(1)
-            navController.navigate(directions)
-        }
-        bt_solution_3.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToSolution3(1)
-            navController.navigate(directions)
-        }
-        bt_problem_4.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToProblem4()
-            navController.navigate(directions)
-        }
-        bt_solution_4.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToSolution4()
-            navController.navigate(directions)
-        }
-        bt_practicing.setOnClickListener {
-            val directions = HomeFragmentDirections.navigateToPracticing()
-            navController.navigate(directions)
-        }
+    private fun setupPersonList() {
+        adapter = HomePersonListAdapter()
+        binding.personList.adapter = adapter
+    }
+
+    private fun setupViewModel() {
+        // Todo: Setup and bind ViewModel
     }
 }

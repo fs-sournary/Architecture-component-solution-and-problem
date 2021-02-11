@@ -1,6 +1,6 @@
 object Version {
 
-    const val ANDROID_GRADLE_PLUGIN = "4.1.1"
+    const val ANDROID_GRADLE_PLUGIN = "7.0.0-alpha05"
     const val ACTIVITY_KTX = "1.1.0"
     const val FRAGMENT_KTX = "1.3.0-rc01"
     const val ANNOTATION = "1.1.0"
@@ -38,7 +38,7 @@ object Version {
     const val MIN_SDK = 21
     const val TARGET_SDK = 30
     const val COMPILE_SDK = 30
-    const val BUILD_TOOL = "30.0.2"
+    const val BUILD_TOOL = "30.0.3"
 
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0"
