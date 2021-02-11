@@ -40,6 +40,7 @@ object Lib {
     // Room
     const val ROOM_KTX = "androidx.room:room-ktx:${Version.ROOM}"
     const val ROOM_COMPILER = "androidx.room:room-compiler:${Version.ROOM}"
+    const val ROOM_RX_JAVA_2 = "androidx.room:room-rxjava2:${Version.ROOM}"
 
     // Paging
     const val PAGING_KTX = "androidx.paging:paging-runtime-ktx:${Version.PAGING}"
@@ -89,6 +90,10 @@ object Lib {
     const val FIREBASE_AUTH = "com.google.firebase:firebase-auth-ktx"
     const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx"
     const val FIREBASE_MESSAGING = "com.google.firebase:firebase-messaging-ktx"
+
+    // Rx
+    const val RX_ANDROID_2 = "io.reactivex.rxjava2:rxandroid:${Version.RX_ANDROID_2}"
+    const val RX_JAVA_2 = "io.reactivex.rxjava2:rxjava:${Version.RX_JAVA_2}"
 
     // Testing
     const val JUNIT = "junit:junit:${Version.JUNIT}"

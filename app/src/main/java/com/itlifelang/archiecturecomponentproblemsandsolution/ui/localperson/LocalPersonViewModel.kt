@@ -1,0 +1,3 @@
+package com.itlifelang.archiecturecomponentproblemsandsolution.ui.localperson
+
+class LocalPersonViewModel

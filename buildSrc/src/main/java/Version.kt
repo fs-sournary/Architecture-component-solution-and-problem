@@ -1,6 +1,6 @@
 object Version {
 
-    const val ANDROID_GRADLE_PLUGIN = "4.1.1"
+    const val ANDROID_GRADLE_PLUGIN = "7.0.0-alpha05"
     const val ACTIVITY_KTX = "1.1.0"
     const val FRAGMENT_KTX = "1.3.0-rc01"
     const val ANNOTATION = "1.1.0"
@@ -29,6 +29,8 @@ object Version {
     const val EXT_JUNIT = "1.1.2"
     const val ESPRESSO = "3.3.0"
     const val PREFERENCE = "1.1.1"
+    const val RX_ANDROID_2 = "2.1.1"
+    const val RX_JAVA_2 = "2.2.20"
 
     // Firebase
     const val GOOGLE_SERVICE = "4.3.4"
@@ -38,7 +40,7 @@ object Version {
     const val MIN_SDK = 21
     const val TARGET_SDK = 30
     const val COMPILE_SDK = 30
-    const val BUILD_TOOL = "30.0.2"
+    const val BUILD_TOOL = "30.0.3"
 
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0"
