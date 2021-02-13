@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.itlifelang.archiecturecomponentproblemsandsolution.databinding.FragmentLocalPersonBinding
 import com.itlifelang.archiecturecomponentproblemsandsolution.extension.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LocalPersonFragment : Fragment() {
+
+    private val viewModel: LocalPersonViewModel by viewModels()
 
     private var binding: FragmentLocalPersonBinding by autoCleared()
     private var adapter: LocalPersonListAdapter by autoCleared()
@@ -31,11 +34,15 @@ class LocalPersonFragment : Fragment() {
     }
 
     private fun setupPersonList() {
-        adapter = LocalPersonListAdapter()
+        adapter = LocalPersonListAdapter {
+            viewModel.deletePersonInDb(it)
+        }
         binding.personList.adapter = adapter
     }
 
     private fun setupViewModel() {
-
+        viewModel.localPersons.observe(viewLifecycleOwner) {
+            it?.apply { adapter.submitList(this) }
+        }
     }
 }

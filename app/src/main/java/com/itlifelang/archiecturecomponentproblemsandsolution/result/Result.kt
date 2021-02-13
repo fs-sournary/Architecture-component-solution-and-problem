@@ -1,5 +1,6 @@
 package com.itlifelang.archiecturecomponentproblemsandsolution.result
 
+import com.itlifelang.archiecturecomponentproblemsandsolution.result.Result.Error
 import com.itlifelang.archiecturecomponentproblemsandsolution.result.Result.Success
 
 /**
@@ -18,3 +19,6 @@ val <T> Result<T>.data: T?
     get() = (this as? Success)?.data
 
 fun <T> Result<T>.successOr(fallback: () -> T): T = (this as? Success)?.data ?: fallback()
+
+val Result<Any>.error: Exception?
+    get() = (this as? Error)?.e

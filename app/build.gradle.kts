@@ -84,7 +84,12 @@ dependencies {
 
     // Room
     implementation(Lib.ROOM_KTX)
+    implementation(Lib.ROOM_RX_JAVA_2)
     kapt(Lib.ROOM_COMPILER)
+
+    // Rx
+     implementation(Lib.RX_ANDROID_2)
+     implementation(Lib.RX_JAVA_2)
 
     // Glide
     implementation(Lib.GLIDE_RUNTIME)

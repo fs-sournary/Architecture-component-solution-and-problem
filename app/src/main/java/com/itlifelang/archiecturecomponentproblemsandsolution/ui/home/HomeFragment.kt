@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.itlifelang.archiecturecomponentproblemsandsolution.databinding.FragmentHomeBinding
 import com.itlifelang.archiecturecomponentproblemsandsolution.extension.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,6 +16,8 @@ class HomeFragment : Fragment() {
 
     private var binding: FragmentHomeBinding by autoCleared()
     private var adapter: HomePersonListAdapter by autoCleared()
+
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,11 +35,23 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupPersonList() {
-        adapter = HomePersonListAdapter()
+        adapter = HomePersonListAdapter {
+            viewModel.savePersonToDb(it)
+        }
         binding.personList.adapter = adapter
     }
 
     private fun setupViewModel() {
-        // Todo: Setup and bind ViewModel
+        viewModel.apply {
+            loading.observe(viewLifecycleOwner) {
+                binding.progress.isVisible = it
+            }
+            persons.observe(viewLifecycleOwner) {
+                it?.apply { adapter.submitList(this) }
+            }
+            error.observe(viewLifecycleOwner) {
+                it?.apply { binding.errorText.text = this.message }
+            }
+        }
     }
 }

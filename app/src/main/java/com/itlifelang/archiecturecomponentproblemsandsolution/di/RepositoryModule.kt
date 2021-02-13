@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import io.reactivex.Scheduler
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -16,6 +17,15 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideHomeRepository(api: Api, personDao: PersonDao): HomeRepository =
-        DefaultHomeRepository(api, personDao)
+    fun provideHomeRepository(
+        api: Api,
+        personDao: PersonDao,
+        @MainScheduler mainScheduler: Scheduler,
+        @IoScheduler ioScheduler: Scheduler
+    ): HomeRepository = DefaultHomeRepository(
+        api = api,
+        personDao = personDao,
+        mainScheduler = mainScheduler,
+        ioScheduler = ioScheduler
+    )
 }

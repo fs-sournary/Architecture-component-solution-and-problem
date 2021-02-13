@@ -10,6 +10,8 @@ data class PersonEntity(
     val id: Int,
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "age")
+    val age: Int,
     @ColumnInfo(name = "avatar")
     val avatar: String?
 )

@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.itlifelang.archiecturecomponentproblemsandsolution.model.Person
 
-class LocalPersonListAdapter : ListAdapter<Person, LocalPersonViewHolder>(COMPARATOR) {
+class LocalPersonListAdapter(
+    private val click: (Person) -> Unit
+) : ListAdapter<Person, LocalPersonViewHolder>(COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalPersonViewHolder =
-        LocalPersonViewHolder.create(parent)
+        LocalPersonViewHolder.create(parent, click)
 
     override fun onBindViewHolder(holder: LocalPersonViewHolder, position: Int) {
         val item = getItem(position) ?: return

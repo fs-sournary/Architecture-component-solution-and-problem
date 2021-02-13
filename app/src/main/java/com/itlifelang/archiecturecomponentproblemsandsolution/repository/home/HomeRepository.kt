@@ -13,4 +13,6 @@ interface HomeRepository {
     fun savePersonToDb(person: Person)
 
     fun deletePersonFromDb(person: Person)
+
+    fun clear()
 }
